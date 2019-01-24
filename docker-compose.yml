@@ -1,7 +1,6 @@
 version: '3'
 
 services:
-
   dev:
     image: node:8-jessie
     volumes:
@@ -11,7 +10,7 @@ services:
     networks:
       - proxy
     #environment:
-      #HTTPS: 'true'
+    #HTTPS: 'true'
     ports:
       - 3000:3000
       - 9229:9229
@@ -21,7 +20,7 @@ services:
       traefik.docker.network: proxy
       traefik.port: 3000
       #traefik.port: 9229
-  
+
 networks:
   proxy:
     external: true
