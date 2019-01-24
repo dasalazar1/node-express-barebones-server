@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  dev:
+    image: node:8-jessie
+    volumes:
+      - .:/usr/src/service
+    working_dir: /usr/src/service
+    command: npm run debug
+    networks:
+      - proxy
+    #environment:
+      #HTTPS: 'true'
+    ports:
+      - 3000:3000
+      - 9229:9229
+    labels:
+      traefik.backend: dev
+      traefik.frontend.rule: Host:dev.recursiveturtle.com
+      traefik.docker.network: proxy
+      traefik.port: 3000
+      #traefik.port: 9229
+  
+networks:
+  proxy:
+    external: true
