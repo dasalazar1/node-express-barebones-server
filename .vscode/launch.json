@@ -8,9 +8,11 @@
       "type": "node",
       "request": "attach",
       "name": "Attach",
-      "address": "127.0.0.1",
       "port": 9229,
-      "restart": true
+      "restart": true,
+      "protocol": "inspector",
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/usr/src/service"
     }
   ]
 }
